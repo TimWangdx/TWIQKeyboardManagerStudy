@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "KeyboardManager.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) IQKeyboardReturnKeyHandler    *returnKeyHandler;
 @end
 
 @implementation ViewController
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
+    self.returnKeyHandler.lastTextFieldReturnKeyType = UIReturnKeyDone;
+
 }
 
 - (void)didReceiveMemoryWarning {
